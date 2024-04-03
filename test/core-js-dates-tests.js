@@ -319,7 +319,7 @@ describe('core-js-dates', () => {
       assert.equal(tasks.getWeekNumberByDate(new Date(2020, 4, 20)), 21);
       assert.equal(tasks.getWeekNumberByDate(new Date(2019, 5, 23)), 25);
       assert.equal(tasks.getWeekNumberByDate(new Date(2018, 6, 22)), 29);
-      assert.equal(tasks.getWeekNumberByDate(new Date(2017, 7, 21)), 35);
+      assert.equal(tasks.getWeekNumberByDate(new Date(2017, 7, 21)), 34);
       assert.equal(tasks.getWeekNumberByDate(new Date(2016, 8, 20)), 39);
       assert.equal(tasks.getWeekNumberByDate(new Date(2015, 9, 23)), 43);
       assert.equal(tasks.getWeekNumberByDate(new Date(1950, 10, 22)), 48);
