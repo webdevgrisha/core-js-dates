@@ -77,27 +77,40 @@ function getDayName(date) {
  * Date('2024-02-13T00:00:00Z') => Date('2024-02-16T00:00:00Z')
  * Date('2024-02-16T00:00:00Z') => Date('2024-02-23T00:00:00Z')
  */
+
+// first way
+// function getNextFriday(date) {
+//   const newDate = new Date(date);
+//   const currectDayNumber = {
+//     0: 7,
+//     1: 1,
+//     2: 2,
+//     3: 3,
+//     4: 4,
+//     5: 5,
+//     6: 6,
+//   };
+//   const dayNumber = newDate.getDay();
+//   let needAddDays = null;
+
+//   if (currectDayNumber[dayNumber] < 5) {
+//     needAddDays = 5 - currectDayNumber[dayNumber];
+//   } else {
+//     needAddDays = 7 - currectDayNumber[dayNumber] + 5;
+//   }
+
+//   newDate.setDate(newDate.getDate() + needAddDays);
+
+//   return newDate;
+// }
+
+// second way
 function getNextFriday(date) {
   const newDate = new Date(date);
-  const currectDayNumber = {
-    0: 7,
-    1: 1,
-    2: 2,
-    3: 3,
-    4: 4,
-    5: 5,
-    6: 6,
-  };
-  const dayNumber = newDate.getDay();
-  let needAddDays = null;
 
-  if (currectDayNumber[dayNumber] < 5) {
-    needAddDays = 5 - currectDayNumber[dayNumber];
-  } else {
-    needAddDays = 7 - currectDayNumber[dayNumber] + 5;
-  }
-
-  newDate.setDate(newDate.getDate() + needAddDays);
+  do {
+    newDate.setDate(newDate.getDate() + 1);
+  } while (newDate.getDay() !== 5);
 
   return newDate;
 }
