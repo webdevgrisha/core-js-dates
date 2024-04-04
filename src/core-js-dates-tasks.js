@@ -52,35 +52,18 @@ function getTime(date) {
  */
 function getDayName(date) {
   const dayNumber = new Date(date).getDay();
-  let dayName = null;
 
-  switch (dayNumber) {
-    case 1:
-      dayName = 'Monday';
-      break;
-    case 2:
-      dayName = 'Tuesday';
-      break;
-    case 3:
-      dayName = 'Wednesday';
-      break;
-    case 4:
-      dayName = 'Thursday';
-      break;
-    case 5:
-      dayName = 'Friday';
-      break;
-    case 6:
-      dayName = 'Saturday';
-      break;
-    case 0:
-      dayName = 'Sunday';
-      break;
-    default:
-      break;
-  }
+  const dayNames = {
+    0: 'Sunday',
+    1: 'Monday',
+    2: 'Tuesday',
+    3: 'Wednesday',
+    4: 'Thursday',
+    5: 'Friday',
+    6: 'Saturday',
+  };
 
-  return dayName;
+  return dayNames[dayNumber];
 }
 
 /**
@@ -268,7 +251,7 @@ function getWeekNumberByDate(date) {
     6: 6,
   };
 
-  const year = date.getFullYear();
+  const year = date.getUTCFullYear();
   const yearStart = new Date(`${year}`);
   const firstDay = currectDayNumber[yearStart.getDay()];
   const dayInFirstWeek = 7 - firstDay + 1;
