@@ -293,16 +293,35 @@ function getWeekNumberByDate(date) {
  * Date(2024, 0, 13) => Date(2024, 8, 13)
  * Date(2023, 1, 1) => Date(2023, 9, 13)
  */
+
+// first way
+// function getNextFridayThe13th(date) {
+//   let dayNumber = null;
+//   let dayName = null;
+
+//   do {
+//     date.setDate(date.getDate() + 1);
+
+//     dayNumber = date.getDate();
+//     dayName = date.getDay();
+//   } while (!(dayNumber === 13 && dayName === 5));
+
+//   return date;
+// }
+
+// second way
 function getNextFridayThe13th(date) {
   let dayNumber = null;
-  let dayName = null;
 
-  do {
+  while (date.getDay() !== 5) {
     date.setDate(date.getDate() + 1);
+  }
+
+  while (dayNumber !== 13) {
+    date.setDate(date.getDate() + 7);
 
     dayNumber = date.getDate();
-    dayName = date.getDay();
-  } while (!(dayNumber === 13 && dayName === 5));
+  }
 
   return date;
 }
