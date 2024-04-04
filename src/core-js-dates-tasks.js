@@ -213,26 +213,38 @@ function formatDate(date) {
  * 12, 2023 => 10
  * 1, 2024 => 8
  */
+
+// first way
+// function getCountWeekendsInMonth(month, year) {
+//   const date = new Date(year, month - 1);
+//   const dateLastDay = new Date(year, month, 0);
+//   const dayInMonth = dateLastDay.getDate();
+
+//   let weekendCount = 0;
+
+//   for (let i = 1; i <= dayInMonth; i += 1) {
+//     const currentDayNumber = date.getDay();
+
+//     if (currentDayNumber === 0 || currentDayNumber === 6) weekendCount += 1;
+
+//     date.setDate(date.getDate() + 1);
+//   }
+
+//   return weekendCount;
+// }
+
+// second way
 function getCountWeekendsInMonth(month, year) {
   const date = new Date(year, month - 1);
   const dateLastDay = new Date(year, month, 0);
   const dayInMonth = dateLastDay.getDate();
-  const currectDayNumber = {
-    0: 7,
-    1: 1,
-    2: 2,
-    3: 3,
-    4: 4,
-    5: 5,
-    6: 6,
-  };
 
-  let weekendCount = 0;
+  let weekendCount = 8;
 
-  for (let i = 1; i <= dayInMonth; i += 1) {
-    const currentDayNumber = currectDayNumber[date.getDay()];
+  for (let i = 29; i <= dayInMonth; i += 1) {
+    const currentDayNumber = date.getDay();
 
-    if (currentDayNumber === 7 || currentDayNumber === 6) weekendCount += 1;
+    if (currentDayNumber === 0 || currentDayNumber === 6) weekendCount += 1;
 
     date.setDate(date.getDate() + 1);
   }
